@@ -1,0 +1,201 @@
+#+TODO: TODO IN-PROGRESS WAITING DONE
+#+POSTID: 1867
+#+DATE: [2012-08-05 Sun 18:56]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS:linux, emacs, org-mode, emacs, org2blog
+#+DESCRIPTION: learn to use org-mode
+#+TITLE: learning org-mode
+
+* the org-mode
+
+** footnote
+
+the org homepage[fn:1] now looks much better
+
+
+| Name   | roll | nick      | school | id |
+|--------+------+-----------+--------+----|
+| sachi  |   21 | tas_devil | srv    | 03 |
+| pravin |   13 | paresh    | ssds   | 08 |
+| -      |      |           |        |    |
+| ronit  |   45 |           |        |    |
+
+
+now something about links
+
+C-c C-l
+
+[[www.google.com][visit google]]
+
+
+[fn:1] the link goes here
+
+
+** TODO clean this up
+** all mess cleaned
+
+   
+* meeting :work:
+
+
+#+CAPTION: a caption for an image
+#+LABEL: pic label
+  [[http://mascot.crystalxp.net/png/impala-8-ball-tux-2635.png]]
+
+** show source
+
+#+BEGIN_SRC emacs-lisp
+ (defun org-xor (a b)
+          "Exclusive or."
+          (if a (not b) b))
+#+END_SRC
+
+   or
+   
+   : ls
+
+** show source
+
+#+BEGIN_SRC bash
+#!/bin/bash 
+# htm2sphinx.sh
+# --------------------
+# -bash sript which helps to converts html pages to rst (sphinx) format
+# recursively, including index.rst
+# -requires `html2rest`
+# --------------------
+
+function convert() {
+    # ----
+    # wil convert html to rst using `html2rest
+    # http://pypi.python.org/pypi/html2rest
+    # ----
+    FILE=$(find -type f -iname "*.htm")
+    # echo $FILE
+    
+    for f in ${FILE[@]}
+    do
+        # echo $f
+	RST=$(echo $f | sed 's/.htm/.rst/g')
+        # echo $RST
+	html2rest $f > $RST
+    done
+}
+
+
+function reSt() {
+    # ----  
+    # find .rst files(recursively) and edit it to the format
+    # required by sphinx
+    # ----
+    DIR=$(find -maxdepth 1 -type d -iname "*" -not -iname ".")
+    # echo $DIR
+	
+    for d in ${DIR[@]}
+    do
+	echo -e "$d"
+	DIR_NAME=$(echo $d | sed 's$./$$g')
+	echo "   ${DIR_NAME}" >> index
+	echo "====" > ${DIR_NAME}.rst
+	echo "$DIR_NAME" >> ${DIR_NAME}.rst
+	echo "====" >> ${DIR_NAME}.rst
+	
+	cat content >> ${DIR_NAME}.rst
+	
+	find -type f -iname "*.rst" | \
+    	    sed 's$^./$$g' | \
+    	    sed 's/.rst//g' | \
+    	    sed 's/^/   /g' | \
+    	    grep "${DIR_NAME}" >> ${DIR_NAME}.rst
+	
+	cd $d
+	RST_FILE=$(find -type f -iname "*.rst")
+	for f in ${RST_FILE[@]}
+	do
+	    HEADING=$(echo $f | sed 's$./$$g' | sed 's/.rst//g')
+            # echo $HEADING
+	    sed -i '1i ====\n"'${HEADING}'"\n====\n' $f
+	done
+	cd ..
+	
+    done
+}
+
+# _init__
+convert
+reSt
+
+# --------------------
+# BUGS
+# 
+# 1)
+# =========
+# some_name
+# =========
+# 
+# 2)
+# circular toctree detected
+# 
+# 3)
+# mtlb/Matlab-Scilab_character_strings    in /string/
+# 
+# --------------------
+
+#+END_SRC
+
+** examples
+
+#+BEGIN_EXAMPLE
+Some example from a text file.
+#+END_EXAMPLE
+
+
+** latex
+
+#+BEGIN_LaTeX
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{learning org-mode}
+\author{sachin}
+\date{[2012-08-05 Sun 18:56]}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={learn to use org-mode},
+  pdfcreator={Emacs Org-mode version 7.8.02}}
+
+\begin{document}
+
+\maketitle
+
+Angles are written as Greek letters $\alpha$, $\beta$ and $\gamma$. The mass
+if the sun is M\_{}sun = 1.989 x 10\^{}30 kg. The radius of the sun is
+R\_{}{sun} = 6.96 x 10\^{}8 m. If $a^2=b$ and $b=2$, then the solution must
+be either $a=+\sqrt{2}$ or $a=-\sqrt{2}$.
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+\end{document}
+#+END_LaTeX
+
+[fn:1] dsdsd
+
+
