@@ -1,0 +1,68 @@
+
+* Posts
+** [[file:/home/sachin/org/hack_android_pattern_lock.org][Hack android pattern lock]]
+   :PROPERTIES:
+   :POSTID:   2302
+   :POST_DATE: 20130619T04:52:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/commandLineAndroid.org][Command-line Android]]
+   :PROPERTIES:
+   :POSTID:   2204
+   :POST_DATE: 20130223T19:54:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/insertTimeInEmacs.org][Insert time-stamp from GNU/Emacs]]
+   :PROPERTIES:
+   :POSTID:   2176
+   :POST_DATE: 20130223T18:37:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/pdftk.org][using pdftk]]
+   :PROPERTIES:
+   :POSTID:   1996
+   :POST_DATE: 20120826T12:45:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/chroot.org][Working with chroot environment]]
+   :PROPERTIES:
+   :POSTID:   1990
+   :POST_DATE: 20130225T06:29:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/whatis/whatIsEmacs.org][what is Emacs?]]
+   :PROPERTIES:
+   :POSTID:   1983
+   :POST_DATE: 20120825T03:13:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/whatis/whatIsGit.org][what is Git?]]
+   :PROPERTIES:
+   :POSTID:   1972
+   :POST_DATE: 20120824T12:35:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/rsync_port.org][How to specify remote port in rsync]]
+   :PROPERTIES:
+   :POSTID:   1964
+   :POST_DATE: 20120823T06:44:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/enable_kvm_intel.org][Enable Kernel virtualization on Intel/AMD arch]]
+   :PROPERTIES:
+   :POSTID:   1960
+   :POST_DATE: 20120823T06:21:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/sshIntoQemu.org][Creating a qemu system image and working with it using ssh login]]
+   :PROPERTIES:
+   :POSTID:   1950
+   :POST_DATE: 20120823T02:19:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/org/renaming master branch in git.org][renaming master branch in git]]
+   :PROPERTIES:
+   :POSTID:   1886
+   :POST_DATE: 20120808T05:59:00+0000
+   :Published: Yes
+   :END:
