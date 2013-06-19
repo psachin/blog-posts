@@ -1,0 +1,108 @@
+#+POSTID: 2204
+#+DATE: [2013-02-24 Sun 01:24]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: android
+#+TAGS: android, command-line, sdk, ant, avd, terminal
+#+DESCRIPTION: Creating an android project using command-line. Building and launching app from terminal
+#+TITLE: Command-line Android
+
+We often use /Eclipse/ for Android programming. Of-course creating an
+Android project is simple and easy for a beginner and advance user
+using Eclipse. Eclipse creates a file hierarchy needed for an Android
+project. Also building and running an =apk= is even simpler. But for
+those who don't want to switch to GUI or who want to stick to the
+terminal for Android programming, read on ..
+
+#+HTML: <!--more-->
+
+* Creating an Android project
+
+Provided you have an /android-sdk/ in your path. 
+
+*Syntax*
+#+BEGIN_SRC bash
+android create project \
+    --name project-name \
+    --target target-API \
+    --path path-to-your-project \
+    --package package-name \
+    --activity name-of-your-main-activity
+#+END_SRC
+
+*Example*
+#+BEGIN_SRC bash
+android create project \
+    --name HelloAndroid \
+    --target android-15 \
+    --path . \
+    --package com.hello.android \
+    --activity MainActivity
+#+END_SRC
+
+* Building an apk
+Building an apk is also simple, type
+#+BEGIN_SRC bash
+android update project --path . --target android-15 --subprojects
+#+END_SRC
+
+which will create a necessary =build.xml= file required for =ant=, and run
+#+BEGIN_SRC bash
+ant debug
+#+END_SRC
+
+this will create an /unsigned-debug/ apk inside the /bin/ directory of
+your project.
+
+
+
+
+* Testing your app
+** Starting emulator
+
+   Start the AVD using,
+ 
+   *Syntax*
+   #+BEGIN_SRC bash
+   emulator -avd name-of-your-avd
+   #+END_SRC
+   
+   *Example*
+   #+BEGIN_SRC bash
+   emulator -avd test
+   #+END_SRC
+
+   If you want to list all your virtual disks, type
+   #+BEGIN_SRC bash
+   android list avd
+   #+END_SRC
+
+** Installing an apk
+   To install an apk, visit your project directory and run
+ 
+   *Syntax*
+   #+BEGIN_SRC bash
+   adb install path-to-your-apk
+   #+END_SRC
+
+   *Example*
+   #+BEGIN_SRC bash
+   adb install bin/com.hello.android.MainActivity.apk
+   #+END_SRC
+
+** Launching your app
+   To test your app, type 
+   
+   *Syntax*
+   #+BEGIN_SRC bash
+   adb shell am start -a android.intent.action.MAIN -n your-package-name/.your-main-activity-name
+   #+END_SRC
+
+   *Example*
+   #+BEGIN_SRC bash
+   adb shell am start -a android.intent.action.MAIN -n com.hello.android/.MainActivity
+   #+END_SRC
+
+
+
+
+

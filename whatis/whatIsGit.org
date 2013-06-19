@@ -1,0 +1,71 @@
+#+POSTID: 1972
+#+DATE: [2012-08-24 Fri 18:05]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: what is
+#+TAGS: git, version control, github, git add, git commit 
+#+DESCRIPTION:
+#+TITLE: what is Git?
+
+[[http://git-scm.com/][Git]] is a [[http://en.wikipedia.org/wiki/Revision_control][version control]] software used to manage documents and
+source-code of a software program over time and between people. As we
+know that the software changes with time with many updates and BUG
+fixes. Sometimes it happens such that the latest changes implemented
+in a source-code makes it completely unusable, and if the copy of the
+previous working code is not kept safely, all the work is in vain.
+
+#+HTML: <!--more-->
+
+*Git* does the job of maintaining the state of file pretty well and in
+a neat and clean fashion. Developers and users don't have to keep
+multiple copies of a file. They just have to tell git that /this/ file
+is to be managed by version control and all the changes to the file is
+taken care by git. We don't have to keep a copy of same file with
+different names like
+
+/barCodeScanner_2_aug_2012.c/
+
+or
+
+/barCodeScanner_new_feature_10_aug_2012.c/
+  
+
+When a file is managed by git, there will be only one instance of a
+file named /barCodeScanner.c/ and the changes occurred to the file is
+recorded in terms of [[http://www.kernel.org/pub/software/scm/git/docs/git-commit.html][commits]]. =commit= stores the current state of the
+file with a log message described by user. The commit log also stores
+details like =commit hash= which is unique hash code for every commit
+along with user details, date-time and changes between two commits. So
+if the user made some changes in a file and now wants to go back to
+previous working state of that file, he just have to [[http://www.kernel.org/pub/software/scm/git/docs/git-revert.html][revert]] to that
+commit and start again. This is easy and safe way to manage software
+repositories with time and between people.
+
+Git is also good at managing remote repositories, where many
+developers can come together and can work on a same project
+simultaneously without worrying of conflicts in a code. Git
+repositories can be hosted on sites like [[https://github.com/][github.com]] and [[http://gitorious.org/][gitorious.org]],
+or you can create your own git-server.
+
+If you are having a debian-based distro, you can install *git* by
+typing
+
+#+BEGIN_SRC bash
+sudo apt-get install git
+#+END_SRC
+
+on red-hat based distro like fedora, mandriva etc., you can install 
+it by typing
+
+#+BEGIN_SRC bash
+yum install git
+#+END_SRC
+
+or else you can install it by compiling the latest source-code which
+can be found on this [[http://git-scm.com/downloads][link]]. 
+
+If you are not comfortable with the command-line version of git, the
+GUI client are *git-cola* and *SmartGit* for linux distros, more
+information can be found [[http://git-scm.com/downloads/guis][here]]. An excellent [[http://git-scm.com/doc][documentation]] and [[http://git-scm.com/book][book]] is
+available free. If you are too lazy in reading those, watch these
+[[http://git-scm.com/videos][videos]].
+

@@ -1,0 +1,29 @@
+#+POSTID: 1964
+#+DATE: [2012-08-23 Thu 12:14]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: rsync, port, --progress, --inplace, --rsh, linux
+#+DESCRIPTION: rsync on specific port
+#+TITLE: How to specify remote port in rsync
+
+In connection to [[http://gnu-linux.org/creating-a-qemu-system-image-and-working-with-it-using-ssh-login/][my post]], wherein my virtual machine can be accessed
+via ssh on port =2200= of the physical system. Rsync takes port =22=
+as its default port. So if I want to sync any data on that virtual
+system, I have to tell rsync on which port it should connect to.
+
+The syntax would be
+#+BEGIN_SRC bash
+rsync --rsh='<COMMAND>' <FILE> USER@HOST:~
+#+END_SRC
+
+if my remote port is =2200=, then
+#+BEGIN_SRC bash
+rsync --rsh='ssh -p2200' ubuntu.img andro@darkstar:~
+#+END_SRC
+
+=--rsh= flag specifies the remote-shell command, here we are using the
+command =ssh= with port as =2200=.
+
+_Tip_
+
+If you want to see progress of file transfer, add =--progress --inplace= flags.

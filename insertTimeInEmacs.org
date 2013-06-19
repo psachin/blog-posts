@@ -1,0 +1,57 @@
+#+POSTID: 2176
+#+DATE: [2013-02-24 Sun 00:07]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS:GNU/Emacs, defun, time-stamp
+#+DESCRIPTION: how to insert time-stamp string into a file from GNU/Emacs
+#+TITLE: Insert time-stamp from GNU/Emacs
+
+Often you need to insert a /time-stamp/ within a file while working in
+GNU/Emacs. One way of doing it is to type
+#+BEGIN_SRC emacs-lisp
+C-u C-! date
+#+END_SRC
+
+which will print a string something like 
+#+BEGIN_SRC bash
+Sun Feb 24 00:11:59 IST 2013
+#+END_SRC
+
+#+HTML: <!--more-->
+
+What if you want to print a formatted time string ? and to bind that
+action with specific key strokes to use within GNU/Emacs ?
+
+Open your *~/.emacs* file and add following code to it.
+#+BEGIN_SRC bash
+(defun insert-current-time()
+  ''insert the current time''
+  (interactive ''*'')
+  (insert (format-time-string ''%l.%M %p''))
+  )
+
+(global-set-key ''\C-x\C-t'' 'insert-current-time)
+#+END_SRC
+
+reload *~/.emacs* file using
+#+BEGIN_SRC emacs-lisp
+M-x eval-buffer
+#+END_SRC
+
+now you can print the time any where within a file by typing
+#+BEGIN_SRC emacs-lisp
+C-x C-t
+#+END_SRC
+or by using the function =insert-current-time=
+
+Note that the above code will print the time as
+#+BEGIN_SRC bash
+12.41 AM
+#+END_SRC
+
+if you want to print a entire time-stamp, replace line starting with
+=(insert ....= from above code snippet with
+#+BEGIN_SRC emacs-lisp
+(insert (current-time-string))
+#+END_SRC
+

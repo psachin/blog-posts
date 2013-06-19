@@ -1,0 +1,78 @@
+#+POSTID: 1886
+#+DATE: [2012-08-08 Wed 11:29]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: linux, git, github, git branch -M
+#+DESCRIPTION: procedure to safely rename git's master branch to some other name
+#+TITLE: renaming master branch in git
+
+
+I have =master= branch as default branch in [[https://github.com][github]] repository. I need
+two more branches called, =ics= and =froyo=, and I want to rename my
+=master= branch to =ics=.
+
+*** *first create two new branches*
+
+#+NAME: create branch 
+#+BEGIN_SRC bash
+git branch froyo 
+git branch ics 
+#+END_SRC 
+
+*** *now rename the =master= branch to =ics=*
+
+#+BEGIN_SRC bash
+git branch -M -a master froyo
+#+END_SRC
+
+*-M* will rename the branch even if the new branch name already
+  exists.
+
+*** *also I want to remove =master= branch from remote.*
+
+#+BEGIN_SRC bash
+git push origin :master
+#+END_SRC 
+
+Now if I want to set the default branch as =ics= on github, then
+login to [[https://github.com][github]]. Visit the repository, go to the =Admin= tab. In the
+=Settings= column, Change the =Default= branch from =master= to =ics=.
+
+*** *Tips*
+    1. *to clone specific branch from git repository*
+       #+BEGIN_SRC bash
+       git clone -b <BRANCH_NAME> git@github.com:<USER>/<REPOSITORY>.git
+       #+END_SRC
+
+       for example,
+       
+       #+BEGIN_SRC bash
+       git clone -b my-branch git@github.com:androportal/installer.git
+       #+END_SRC
+
+    2. *copy file from another branch*
+       #+BEGIN_SRC bash
+       git co <BRANCH_NAME> <FILE>
+       #+END_SRC
+    
+       for example,
+       #+BEGIN_SRC bash
+       git co froyo html2sphinx.sh
+       #+END_SRC
+      
+    3. *to checkout particular branch from remotes*
+       #+BEGIN_SRC bash 
+       git co -b <BRANCH> remotes/origin/<BRANCH>
+       #+END_SRC
+
+       for example,
+       #+BEGIN_SRC bash 
+       git co -b froyo remotes/origin/froyo
+       #+END_SRC
+
+    4. *to remove files from git which are already deleted from system*
+       #+BEGIN_SRC bash 
+       for file in $(git ls-files --deleted); do git rm $file; done
+       #+END_SRC
+
+    

@@ -1,0 +1,56 @@
+#+POSTID: 1983
+#+DATE: [2012-08-25 Sat 08:43]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: what is
+#+TAGS: GNU/Emacs, emacs, XEmacs, text editor, IDE, GNU, linux, elisp, lisp
+#+DESCRIPTION:
+#+TITLE: what is Emacs?
+
+Well a straight answer to this question is "/GNU/Emacs is a text
+editor/" which can be easily extended and customized. But I would say
+its an *Operating system* in which one can do anything from managing
+other processes, files, folders, check mails, browse web and even
+listen to music apart from just editing text and writing codes. For
+developers and coders it acts as an full fledged [[http://en.wikipedia.org/wiki/Integrated_development_environment][IDE]].
+
+#+HTML: <!--more-->
+
+People often complain that [[http://www.gnu.org/software/emacs/][Emacs]] has lots of key-bindings which can be
+frustrating sometimes, but trust me after a while once you get used to
+it, you will discover that you have started working faster and in a
+much managed way. Be it a task like writing a [[https://github.com/punchagan/org2blog][blog]], or a programming
+code, Emacs has support for almost all programming languages in the
+world with common support such as /syntax highlighting/, /code
+indentation/, /auto-completion/ and many more.
+
+** Key features
+    1. *buffer*: If one is used to work with multiple files at a same
+       time(tabs), then emacs /buffer/ is something similar. What puts
+       emacs /buffer/ stand apart from normal tabs is that these
+       /buffers/ don't just holds files, but also shell, scratchpads,
+       output logs from emacs or some other programs. One can switch
+       between these /buffers/ easily with *C-x b* which stands for
+       "hold down *Control key* and press *x*, released both keys and
+       press *b*". If you think this key-binding is cumbersome, then
+       you can install an emacs extension(its just an .el file) called
+       [[http://www.emacswiki.org/CycleBuffer][CycleBuffer]] and switch buffers with function keys[F11,F12].
+       
+    2. *ring*: In any text editor you have used so far, we can only
+       cut/copy paste one buffer at a time, which means when we copy
+       something that will overwrite any existing buffer. Emacs goes a
+       different way, means when we copy something, emacs stores it as
+       an array or a ring, and we can cycle through in a circular
+       fashion and can select particular item.
+
+    3. *tramp*: Using this mode, you can edit remote file by calling
+       it in your local buffer.
+       
+    4. *mark ring*: You can mark points in buffers and visit it later
+       using *C-<SPC> C-<SPC>*.
+
+** help in GNU/Emacs:
+   a. If you want to get started with GNU/Emacs, is has built-in self
+   tutorial which can be called using *C-h t*.
+   
+   b. for detailed manual type *C-h r*
+
