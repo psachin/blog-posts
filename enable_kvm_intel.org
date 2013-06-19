@@ -1,0 +1,27 @@
+#+POSTID: 1960
+#+DATE: [2012-08-23 Thu 11:51]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: kernel, virtualization, modrpobe, egrep, vmx, svm, /proc/cpuinfo
+#+DESCRIPTION: enable kvm and kvm_intel using modprobe
+#+TITLE: Enable Kernel virtualization on Intel/AMD arch
+
+To check if the hardware supports Virtualizaton Technology(VT), open a
+terminal and type
+
+#+BEGIN_SRC bash
+egrep '(vmx|svm)' /proc/cpuinfo
+#+END_SRC
+if you can see some output, then your hardware supports VT.
+
+Next to enable kernel modules, type
+#+BEGIN_SRC bash
+sudo modprobe kvm_intel
+sudo modprobe kvm
+#+END_SRC
+
+
+** Note
+   
+   - *vmx* - is for Intel
+   - *svm* - is for AMD
