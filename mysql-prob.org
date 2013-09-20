@@ -1,0 +1,82 @@
+#+BLOG: gnu-linux
+#+POSTID: 2351
+#+DATE: [2013-09-20 Fri 12:05]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: MySQL, Job failed, error
+#+DESCRIPTION: error - start: Job failed to start
+#+TITLE: Fix MySQL problem after dist-upgrade
+
+Often after doing =dist-upgrade= on Ubuntu using a command,
+
+#+BEGIN_SRC bash
+sudo apt-get dist-upgrade
+#+END_SRC bash
+
+MySQL server fails to start throwing an error message,
+
+#+BEGIN_SRC bash
+sudo service mysql start
+#+END_SRC bash
+
+#+BEGIN_SRC bash
+error:
+start: Job failed to start
+#+END_SRC bash
+
+#+HTML: <!--more-->
+
+Here is a simple solution to above problem.
+
+** Create a backup of your existing MySQL
+
+#+BEGIN_SRC bash
+sudo cp -r /var/lib/mysql ~/mysql-backup
+#+END_SRC bash
+
+** Remove existing MySQL package and related files
+
+#+BEGIN_SRC bash
+sudo apt-get purge mysql-server-5.1 mysql-common
+#+END_SRC bash
+
+** Remove configuration files if any
+
+   remove files from =/etc/mysql/=
+
+#+BEGIN_SRC bash
+sudo rm /etc/mysql/ -R
+#+END_SRC bash
+
+** Restore and fix permissions
+
+After a purge, you can restore back your backup files to
+=/var/lib/mysql= if they does not exist.
+
+#+BEGIN_SRC bash
+sudo mkdir /var/lib/mysql
+sudo cp -r ~/mysql-backup/* /var/lib/mysql
+#+END_SRC bash
+
+and fix the permissions.
+#+BEGIN_SRC bash
+sudo chown root:root /var/lib/mysql/ -R
+#+END_SRC bash
+
+** Reinstall MySQL
+
+Now reinstall MySQL package.
+#+BEGIN_SRC bash
+sudo apt-get install mysql-server
+#+END_SRC bash
+
+This should fix the problem. Verify it using,
+
+#+BEGIN_SRC bash
+sudo service mysql start
+#+END_SRC bash
+
+
+
+
+
