@@ -66,3 +66,16 @@
    :POST_DATE: 20120808T05:59:00+0000
    :Published: Yes
    :END:
+** [[file:/home/sachin/github/blog-posts/patch_n_revert.org][How to patch the source code or revert it back? ]]
+   :PROPERTIES:
+   :POSTID:   2366
+   :POST_DATE: 20130621T07:17:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/mysql-prob.org][Fix MySQL problem after dist-upgrade]]
+   :PROPERTIES:
+   :POSTID:   2351
+   :POST_DATE: 20130920T06:35:00+0000
+   :Published: Yes
+   :END:
+   
