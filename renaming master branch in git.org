@@ -41,7 +41,7 @@ login to [[https://github.com][github]]. Visit the repository, go to the =Admin=
 *** *Tips*
     1. *to clone specific branch from git repository*
        #+BEGIN_SRC bash
-       git clone -b <BRANCH_NAME> git@github.com:<USER>/<REPOSITORY>.git
+       git clone -b BRANCH_NAME git@github.com:USER/REPOSITORY.git
        #+END_SRC
 
        for example,
@@ -52,7 +52,7 @@ login to [[https://github.com][github]]. Visit the repository, go to the =Admin=
 
     2. *copy file from another branch*
        #+BEGIN_SRC bash
-       git co <BRANCH_NAME> <FILE>
+       git co BRANCH_NAME FILE
        #+END_SRC
     
        for example,
@@ -62,7 +62,7 @@ login to [[https://github.com][github]]. Visit the repository, go to the =Admin=
       
     3. *to checkout particular branch from remotes*
        #+BEGIN_SRC bash 
-       git co -b <BRANCH> remotes/origin/<BRANCH>
+       git co -b BRANCH remotes/origin/BRANCH
        #+END_SRC
 
        for example,

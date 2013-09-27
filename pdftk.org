@@ -16,8 +16,8 @@
    #+END_SRC
 
    #+HTML: <!--more-->
-   I want to merge all the pdf's into a single book, then my command will
-   be
+   I want to merge all the pdf's into a single book, then my command
+   will be
    #+BEGIN_SRC bash
    pdftk front.pdf toc.pdf auth_colo.pdf part1.pdf chap01.pdf ... index.pdf cat output my_full_book.pdf
    #+END_SRC
@@ -41,7 +41,7 @@
    the syntax goes like this
    
    #+BEGIN_SRC bash
-   pdftk <PDF_FILE> cat <FROM>-<TO> <FROM>-end output <NEW_PDF_FILE_NAME>
+   pdftk PDF_FILE cat FROM-TO FROM-end output NEW_PDF_FILE_NAME
    #+END_SRC
 
 ** rotating pages

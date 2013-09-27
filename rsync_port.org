@@ -13,7 +13,7 @@ system, I have to tell rsync on which port it should connect to.
 
 The syntax would be
 #+BEGIN_SRC bash
-rsync --rsh='<COMMAND>' <FILE> USER@HOST:~
+rsync --rsh='COMMAND' FILE USER@HOST:~
 #+END_SRC
 
 if my remote port is =2200=, then

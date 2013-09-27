@@ -38,14 +38,12 @@ using ssh login.
 *** *2. Creating and installing image*
     We need to first create a raw qemu image using command
      #+BEGIN_SRC bash
-     qemu-img create -f raw <IMAGE_NAME>.img <SIZE>
-
+     qemu-img create -f raw IMAGE_NAME.img SIZE
      #+END_SRC
     for example, if I want to create an image of =32G= with name as
     =ics-testing.img= then
      #+BEGIN_SRC bash
      qemu-img create -f raw ics-testing.img 32G
-
      #+END_SRC
     
     Once the image is created, we can use it as a raw disk image and
@@ -54,20 +52,18 @@ using ssh login.
 
     The syntax would be
      #+BEGIN_SRC bash
-     qemu-system-<ARCH> -vnc none,ipv4 -hda <IMAGE_NAME> \
-     -cdrom </LOCATION/OF/AN/ISO> \
-     -m <MEMORY> -enable-kvm
-
+     qemu-system-ARCH -vnc none,ipv4 -hda IMAGE_NAME -cdrom /PATH/TO/ISO/FILE -m MEMORY -enable-kvm
      #+END_SRC
     for example, if my system arch is =x86-64= and my iso location is
     =/home/devils/iso/ubuntu-12.04-desktop-amd64.iso= with memory as
     =4G=. Also I want to enable kernel based virtualisation.
+
      #+BEGIN_SRC bash
      qemu-system-x86_64 -vnc none,ipv4 -hda ics-testing.img \
      -cdrom /home/devils/iso/ubuntu-12.04-desktop-amd64.iso \
      -m 4096 -enable-kvm
-
      #+END_SRC
+
     this will pop up a qemu window. Proceed with the installation and
     reboot the system.
     
@@ -76,17 +72,17 @@ using ssh login.
     #+BEGIN_SRC bash
      qemu-system-x86_64 -vnc none,ipv4 -hda ics-testing.img \
      -m 4096 -enable-kvm
-    
     #+END_SRC
     now configure the system, its package manager and user's
     account. Install Openssh-server and enable ssh logins. If
     everything is configured, start qemu using,
+
     #+BEGIN_SRC bash
      qemu-system-x86_64 -vnc none,ipv4 -hda ics-testing.img \
      -m 4096 -enable-kvm \
      -redir tcp:2200::22    
-
     #+END_SRC
+
     The =-redir tcp:2200::22= redirects TCP traffic on the host port
     =2200= to the guest machine (QEMU) port =22=. This will allow us
     to SSH into the machine later by connecting to =localhost= on
@@ -98,15 +94,15 @@ using ssh login.
 
       You can ssh into the running qemu system using a command
       #+BEGIN_SRC bash
-      ssh -p <PORT> <USER>@<IP-Address or Hostname>
-
+      ssh -p PORT USER@IP-Address or HOSTNAME
       #+END_SRC
       for example, if I want to connect to port =2200= of =localhost=
       with username as =qemu-user=, then
+
       #+BEGIN_SRC bash
       ssh -p 2200 qemu-user@localhost
-
       #+END_SRC
+
       as port =2200= on =localhost= is open and is binded with port
       =22= of qemu system, so we will use =-p 2200= as one of the
       parameter.
@@ -118,17 +114,16 @@ using ssh login.
 
     syntax:
     #+BEGIN_SRC bash
-    qemu-img create -f qcow2 -b <ORIGINAL_IMAGE_NAME> \
-    <SNAPSHOT_IMAGE_NAME>
-
+    qemu-img create -f qcow2 -b ORIGINAL_IMAGE_NAME SNAPSHOT_IMAGE_NAME
     #+END_SRC
+
     for example if my original image name is =ics-testing.img= and my
     snapshot image name is =snapshot.img=, then
 
     #+BEGIN_SRC bash
     qemu-img create -f qcow2 -b ics-testing.img snapshot.img
-
     #+END_SRC
+
     =-f= flag will specify image format. In this case it is =qcow2=
     which is most versatile qemu-image format. Please refer man-pages
     for more detail.
@@ -139,7 +134,6 @@ using ssh login.
     qemu-system-x86_64 -vnc none -hda snapshot.img \
     -m 4096 -enable-kvm \
     -redir tcp:2200::22
-
     #+END_SRC
     
 *** *6. Tips*
