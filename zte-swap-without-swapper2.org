@@ -11,7 +11,7 @@ Idea Blade/ZTE Blade comes with 167 MB usable memory. Their is no way
 you can install CyanogenMod9/10 in such a low RAM. However I took a
 chance and installed CM9 and it slogs like hell. Swapper2 can be used
 to add swap, but it adds another memory and space
-constraint. /[[http://androidforums.com/boost-mobile-warp-all-things-root/610449-ram-swapping-without-swapper2.html][drewhill77]]/ came up with an excellent way to add swap
+constraint. [[http://androidforums.com/boost-mobile-warp-all-things-root/610449-ram-swapping-without-swapper2.html][drewhill77]] came up with an excellent way to add swap
 without installing swapper2. This a simple way swap is added in
 typical UNIX system.
 
@@ -70,7 +70,7 @@ post. After you enter the device shell using *adb* using
    Once swap is added, its time to confirm it using =free= command.
 
    #+BEGIN_SRC sh
-     adb shell free -m
+     free -m
    #+END_SRC sh
 
    | total |     used |   free | shared | buffers |     |
