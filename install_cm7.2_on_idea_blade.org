@@ -1,0 +1,124 @@
+#+DATE: [2012-07-08 Sun 11:52]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: android
+#+TAGS: cyanogemmod, idea blade, zte blade, dell xcd35
+#+DESCRIPTION: Install CyanogenMod 7.2 on Idea Blade/ZTE blade/xcd35
+#+TITLE: Install CyanogenMod 7.2 on Idea Blade/ZTE blade/xcd35
+
+** Steps
+   
+   This is an update to
+   [[http://gnu-linux.org/how-to-install-cyanogeod-7-1-on-zte-blade-a-k-a-dell-xcd35/][how-to-install-CyanogenMod-7-1-on-zte-blade-aka-dell-xcd35]], but
+   focuses on Idea Blade. You can't directly install
+   [[http://download.cyanogenmod.com/get/jenkins/2816/cm-7.2.0-blade.zip][cm-7.2.0-blade.zip]] using ROM manager as it throws an error
+   something like this,
+
+   #+HTML: <!--more-->
+
+   #+BEGIN_SRC sh
+     E:failed to find "cache" partition to mount at "/cache"
+     E:Can't mount /cache/recovery/log
+     E:Can't open /cache/recovery/log
+     E:failed to find "cache" partition to mount at "/cache"
+     E:Can't mount /cache/recovery/last_log
+     E:Can't open /cache/recovery/last_log
+     E:Can't find misc
+     E:failed to find "cache" partition to mount at "/cache"
+   #+END_SRC sh
+
+   The error says, ClockWorkMod(CWM) fails to identify the root to the
+   device as a result you one can't even backup, restore or flash the
+   ROM. Download 'Google Apps' from [[http://goo.im/gapps/gapps-gb-20110828-signed.zip][here]]. Copy both the zip files to
+   your SD-card. Follow the same steps till installation of ROM
+   Manager(step-3) from previous post.
+   
+   To overcome the error message, download [[http://forum.xda-developers.com/attachment.php?attachmentid%3D1133742&d%3D1339840194][flash_image]] and
+   [[http://forum.xda-developers.com/attachment.php?attachmentid%3D1133743&d%3D1339840194][recovery.img]] files and connect the device using [[http://developer.android.com/tools/help/adb.html][adb]] (You have to
+   enable 'Android debugging mode' on the device). Unzip
+   /flash_image.zip/ and push it to SD-card in the location
+   =/mnt/sdcard/=.
+
+*** flash_image
+    
+   #+BEGIN_SRC sh
+     unzip flash_image.zip
+     adb push flash_image /mnt/sdcard/
+   #+END_SRC sh
+
+*** recovery.img
+    
+    Unzip /recovery-4.0.1.0-blade-gen2-en.zip/ and push it to a same
+    location.
+
+    #+BEGIN_SRC sh
+      unzip recovery-4.0.1.0-blade-gen2-en.zip
+      adb push recovery.img /mnt/sdcard/
+    #+END_SRC sh
+
+*** adb shell
+
+    Now enter the device's =shell= and log-in as root.
+
+    #+BEGIN_SRC sh
+      adb shell
+      su
+    #+END_SRC sh
+
+*** Copy flash_image to /system
+
+    =flash_image= has to be copied to =/system/bin= but before that
+    =/system= as to be mounted as read-write. Make use of =busybox= to
+    remote the partition.
+    
+    #+BEGIN_SRC sh
+      busybox mount -o remount,rw /system  
+    #+END_SRC sh
+    
+    #+BEGIN_SRC sh
+      busybox cp /sdcard/flash_image /system/bin
+    #+END_SRC sh
+    
+*** Next, give all permission to =/flash_image=
+    
+    #+BEGIN_SRC sh
+      busybox chmod 777 /system/bin/flash_image
+    #+END_SRC sh
+    
+*** Lastly, flash =recovery.img= using the command:
+    
+    #+BEGIN_SRC sh
+      flash_image recovery /sdcard/recovery.img
+    #+END_SRC sh
+
+
+    Now reboot and select /Reboot into Recovery/ option from 'ROM
+    manager' and boot again into recovery mode. Follow the same
+    procedure(step-4 onwards) for installing ROM from SDcard.
+
+** Update
+
+   If you accidentally push wrong =recovery.img= and the device fails
+   to boot.
+
+   - Press 'vol-UP' + power-button' till you get android logo splash
+     screen.
+
+   - Attach phone using USB cable and type
+
+     #+BEGIN_SRC sh
+       fastboot flash recovery recovery.img
+     #+END_SRC sh
+
+     =fastboot= binary can be located in /android-sdk/ path
+     “android-sdk-linux/platform-tools/fastboot”.
+
+** versions
+   
+   - [[http://gnu-linux.org/wp-content/uploads/2012/03/z4root_blade_perm_root_v2.apk_.zip][z4root_blade_root]] – v2
+   - transparent proxy – 3.08 beta
+   - ROM Manager – v5.0.0.8
+
+** Reference
+
+   - [[http://forum.xda-developers.com/showthread.php?t%3D1713419&gt][CWM Recovery solution - Idea Blade]]
+
