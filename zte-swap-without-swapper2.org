@@ -12,8 +12,8 @@ you can install CyanogenMod9/10 in such a low RAM. However I took a
 chance and installed CM9 and it slogs like hell. Swapper2 can be used
 to add swap, but it adds another memory and space
 constraint. [[http://androidforums.com/boost-mobile-warp-all-things-root/610449-ram-swapping-without-swapper2.html][drewhill77]] came up with an excellent way to add swap
-without installing swapper2. This a simple way swap is added in
-typical UNIX system.
+without installing swapper2. This is a simple way using which a swap
+is added in typical UNIX system.
 
 #+HTML: <!--more-->
 
