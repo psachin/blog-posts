@@ -1,0 +1,175 @@
+#+BLOG: carlfg.wordpress.com
+#+POSTID: 30
+#+DATE: [2013-10-21 Mon 12:38]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: emacs
+#+DESCRIPTION: Insert shebang extension for Emacs
+#+TITLE: Insert shebang extension for Emacs
+
+Often while writing a BASH or a Python script we need to insert a
+header line called a *shebang* line. Although not mandatory but most
+people like it. It tells the program loader which interpreter to use
+when the script is executed. I personally hate to write this line for
+every new script. How about Emacs insert it automatically for you
+depend upon file extension?
+
+#+HTML: <!--more-->
+
+** /insert-shebang/ extension for Emacs.
+   
+   I have a Emacs extension to accomplish this task. 
+
+*** Install it using =package.el=
+
+    #+BEGIN_SRC emacs-lisp
+     M-x package-install RET insert-shebang RET
+    #+END_SRC emacs-lisp
+
+*** or install it manually
+   
+   - Clone the repository
+     
+     #+BEGIN_SRC sh
+       git clone https://github.com/psachin/insert-shebang.git
+     #+END_SRC sh
+   
+   - Add directory containing =insert-shebang.el= file to =load-path=
+     in your =~/.emacs= file. For example:
+     
+     #+BEGIN_SRC emacs-lisp
+       (add-to-list 'load-path "/path/to/insert-shebang/")
+     #+END_SRC emacs-lisp
+
+   - To load a package, add:
+       #+BEGIN_SRC emacs-lisp
+         (require 'insert-shebang)
+       #+END_SRC emacs-lisp
+       
+   - To enable it globally, add:
+      #+BEGIN_SRC emacs-lisp
+        (add-hook 'find-file-hook 'insert-shebang)
+      #+END_SRC emacs-lisp
+     
+   - Optionally, run =make= to byte-compile the file.
+   
+
+   The install instructions are also described in project's [[https://github.com/psachin/insert-shebang/blob/master/ReadMe.org][ReadMe]]
+   file.
+
+   By default *insert-shebang* supports three extension(bash, python
+   and perl) but other interpreters can be added using
+   =customize-group=, I will get into this detail in a while. It uses
+   an environment =env= path and appends it with appropriate
+   interpreter.
+
+   Instead of using
+   #+BEGIN_SRC sh
+     #!/bin/bash
+   #+END_SRC sh
+
+   It puts
+   #+BEGIN_SRC sh
+     #!/usr/bin/env bash
+   #+END_SRC sh
+   
+   which is easier to change later.
+   
+** Usage
+   
+   Ones the extension in installed, you don't have to do much, just
+   try to open a new file and it will insert the shebang line for you.
+
+   #+CAPTION: New file with shebang inserted.
+   #+NAME: insert-shebang-new-file
+   #+ATTR_HTML: alt="A new file with shebang inserted."
+   #+ATTR_HTML: width="800" height="800" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:center;"
+   [[http://carlfg.files.wordpress.com/2013/10/insert-shebang-new-file1.png]]
+
+** Add support for other interpreters
+   
+   You can add support for other interpreted languages like =csh=,
+   =php, and =ruby= language using =customize-group=. 
+
+   #+BEGIN_SRC emacs-lisp
+     M-x customize-group RET insert-shebang RET
+   #+END_SRC emacs-lisp
+
+   and edit /Insert Shebang File Types/ variable. For example if I want to add
+   support for =ruby=, click =INS= button and type =rb= (ruby file
+   extension) in the /Extension/ field and =ruby= in the /Interpreter/
+   field. Apply and save the customization.
+   
+   #+CAPTION: Add ruby language support.
+   #+NAME: insert-shebang-file-types
+   #+ATTR_HTML: alt="Add ruby language support."
+   #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:right;"
+   http://carlfg.files.wordpress.com/2013/10/insert-shebang-file-types1.png
+
+** Add support for compiled language
+   
+   Optionally if you want to add header line for compiled languages
+   such as C, C++, FORTRAN etc. you need to customize /Insert Shebang
+   Custom Headers/ variable. Of-course this is not a generic way to
+   add header as headers may differ. This is an optional feature. This
+   variable is set to =nil= by default.
+
+   #+CAPTION: Add custom header for compiled language.
+   #+NAME: insert-shebang-custom-headers
+   #+ATTR_HTML: alt="Add custom header for compiled language."
+   #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:center;"
+   http://carlfg.files.wordpress.com/2013/10/insert-shebang-custom-headers.png
+
+** Ignore file extensions
+   
+   Sometimes you want *insert-shebang* to ignore certain files like
+   =.log=, =.conf=, =.tex= etc. Customize the variable /Insert Shebang
+   Ignore Extensions/. By default *insert-shebang* ignores =.txt=
+   and =.org= files.
+
+   #+CAPTION: List of ignored file extensions.
+   #+NAME: insert-shebang-ignore-extensions
+   #+ATTR_HTML: alt="List of ignored file extensions."
+   #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:center;"
+   http://carlfg.files.wordpress.com/2013/10/insert-shebang-ignore-extensions.png
+
+** Track ignored files
+   
+   It may happen that some existing file don't have a shebang line
+   like a python script in a django project. In this
+   case *insert-shebang* will ask you before automatically inserting a
+   shebang line. If you say NO at this point, it will save the path of
+   the ignored file in =~/.insert-shebang.log=. The log file name can
+   be customize using /Insert Shebang Track Ignored Filename/
+   variable.
+
+   #+CAPTION: Log ignored filename.
+   #+NAME: insert-shebang-track-ignored-filename
+   #+ATTR_HTML: alt="Log ignored filename."
+   #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:center;"
+   http://carlfg.files.wordpress.com/2013/10/insert-shebang-track-ignored-filename.png
+
+** FAQs
+*** What if my program already has a shebang line?
+    If the program file already has a shebang line, *insert-shebang*
+    will open it as it is.
+
+*** What if my program has some other line say a comment at the top?
+    First of all *insert-shebang* will ask you to insert a shebang
+    line. If you choose YES, it will insert it as a top most line with
+    your comment below it.
+    
+    #+CAPTION: New file with comment below shebang.
+    #+NAME: insert-shebang-new-file-with-comment
+    #+ATTR_HTML: alt="New file with comment below shebang."
+    #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+    #+ATTR_HTML: style="float:center;"
+    http://carlfg.files.wordpress.com/2013/10/insert-shebang-new-file-with-comment1.png
+
+    
+Comments and suggestions are most welcome.
