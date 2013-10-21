@@ -31,6 +31,9 @@ With this brief introduction lets start setting up Clojure.
        wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
      #+END_SRC sh
    - Add =~/bin= PATH in your =~/.bashrc=
+     #+BEGIN_SRC sh
+       export PATH=~/bin:$PATH
+     #+END_SRC sh
    - Make the binary executable
      #+BEGIN_SRC sh
        chmod a+x ~/bin/lein
