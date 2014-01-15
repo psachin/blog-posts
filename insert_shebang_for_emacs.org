@@ -154,6 +154,21 @@ depend upon file extension?
    #+ATTR_HTML: style="float:center;"
    http://carlfg.files.wordpress.com/2013/10/insert-shebang-track-ignored-filename.png
 
+** Open log buffer
+
+   You may also open =~/.insert-shebang.log= file for editing using
+
+   #+BEGIN_SRC emacs-lisp
+     M-x insert-shebang-open-log-buffer
+   #+END_SRC emacs-lisp
+
+   #+CAPTION: Open log file for editing.
+   #+NAME: insert-shebang-open-log-buffer
+   #+ATTR_HTML: alt="Open log file for editing."
+   #+ATTR_HTML: width="1000" height="1000" style="border:4px solid black;"
+   #+ATTR_HTML: style="float:center;"
+   http://carlfg.files.wordpress.com/2014/01/insert-shebang-open-log-buffer.png
+
 ** FAQs
 *** What if my program already has a shebang line?
     If the program file already has a shebang line, *insert-shebang*
