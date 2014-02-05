@@ -1,0 +1,35 @@
+* Installing DD-WRT firmware on D-Link DIR-615(Rev E4) wireless router.
+  (Installing open-wrt firmware on D-Link DIR-615(Rev E4) wireless router)
+
+** Situation
+** Prerequisite
+*** Hardware 
+*** Backup
+*** Downloads
+    - ftp://dd-wrt.com/others/eko/BrainSlayer-V24-preSP2/2014/01-10-2014-r23320-fix/dlink-dir615e4/
+** Installation
+*** Before install
+    - 30/30/30 reset
+    - AP99-AR7240-RT-091105-05 to AP99-AR7240-RT-091105-01
+*** Install
+**** Using web based
+**** Using TFTP
+**** Using SSH
+*** After install
+** Debug
+*** Using serial to USB converter
+*** Using SSH
+** TODO
+*** Hardware Mods
+    - http://wiki.openwrt.org/toh/d-link/dir-615?s[]=dir615#usb
+** Conclusion
+** Reference
+   - http://wiki.openwrt.org/toh/d-link/dir-615
+
+
+
+
+
+
+
+
