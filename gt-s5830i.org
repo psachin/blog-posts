@@ -1,0 +1,143 @@
+#+TITLE:     Upgrade Samsung GT-s5830i from 2.3 to 4.1(with JellyBlast ROM)
+#+AUTHOR:    =tas_devil=
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-02-11 Tue
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+
+* Upgrade Samsung GT-s5830i from 2.3 to 4.1(with JellyBlast ROM)
+
+  /Warning/: Rooting can void your phone's warranty. Please follow the
+  steps at your own risk. You must really be a brave heart to root and
+  upgrade you ROM. Follow the steps exactly, unable to do so can brick
+  your phone and make it unusable(for life). Headphones are not
+  detected so you need to install 'SoundAbout' from Google play. You
+  need to buy licensed version of 'SoundAbout' to enable calling using
+  headphones
+
+** Before you proceed
+*** Make backup
+**** Sync
+    - Take backup of your contacts/SMS etc.
+    - Or sync to your Google account.
+
+** Downloads[[https://drive.google.com/folderview?id=0BwmlxsGXffwTczZpejVhbkxwWUE&usp=sharing][(from Google Drive]])
+   - ClockWorkRec5830i.zip
+   - jellyblastv3.0.3\_ported\_for\_s5830i.zip
+   - update.zip
+
+** Root
+   - Copy all the three files into root(/) of your SDcard.
+   - Power off your phone.
+   - Press =Vol-UP= + =Home= + =Power=
+   - Select(Using =Home= button)
+     
+     #+BEGIN_SRC sh
+       Select install update from sd
+     #+END_SRC sh
+
+     and select =update.zip= file
+     
+     /Note/: Use =Vol-UP=, =Vol-DOWN= keys to move up/down
+     
+     #+CAPTION:    Select update.zip
+     #+LABEL:      fig:update
+     #+ATTR_LaTeX: width=5cm,angle=0
+
+     [[./gt-s5830i-images/samsung-recovery.jpg]]
+   
+   - Select 
+
+     #+BEGIN_SRC sh
+       Reboot phone
+     #+END_SRC sh
+
+   - By now your phone should be rooted and =SuperUser= icon will
+     appear in your application menu.
+
+** Make backup-2
+   - Now its a good time to backup of your data 
+   - CWM(/ClockWorkMod ROM Manager/) can backup the entire ROM.
+   - /Titanium Backup/ can be used to backup apps and other data
+
+*** Titanium Backup(requires rooting)
+    - Backup using Titanium Backup. It can backup data as well as
+       apps
+
+*** Using CWM(requires rooting)
+    - Select 
+
+      #+BEGIN_SRC sh
+       Select install update from sd
+      #+END_SRC sh
+
+    - and select =ClockWorkRec5830i.zip=
+
+    - You are now inside CWM recovery menu.
+      
+    - Now select =backup and restore= and select =backup=.
+
+    - This will backup you existing ROM along with data.
+      
+    - CWM will save the backup in you SDcard under =ClockworkMod=
+      directory
+
+      #+CAPTION:    CWM backup
+      #+LABEL:      fig:update
+      #+ATTR_LaTeX: width=7cm, height=10cm, angle=0
+      
+      [[./gt-s5830i-images/cwm_backup.jpg]]
+
+** Install 4.1(JellyBlast v3.0.3)
+   
+   - I assume you have made a backup of your data and ROM and you are
+     still inside CWM recovery menu.
+   - Go back to default Samsung recovery menu by pressing =POWER=
+     button
+   - Select =wipe data/reset=
+   - Again go to CWM recovery menu by selecting =install zip from sd=
+     -> =ClockWorkRec5830i.zip=
+
+   - Now select =wipe data/factory reset= and say =yes= (Use UP/DOWN
+     volume key)
+      
+   - Also do the same by selecting =wipe cache partition=
+
+   - Also visit =advanced= menu and select =wipe dalvik cache=
+
+   - Now come back to main menu of CWM and select =apply update from
+     sdcard=
+
+   - and choose =jellyblastv3.0.3_ported_for_s5830i.zip= file.
+
+   - Wait for some time till the ROM is installed and select =reboot
+     system now=
+
+     #+CAPTION:    JellyBlast 3.0.3 install complete
+     #+LABEL:      fig:update
+     #+ATTR_LaTeX: width=5cm,angle=0
+     
+     [[./gt-s5830i-images/install-complete.jpg]]
+
+   - I recommend to backup your freshly installed ROM using *CWM*.
+
+** Bug fix
+   - To fix the headset issue install 'SoundAbout' app from Google
+     play store.
+   - *Do not* install external =gapps= over this ROM.
+
+
+** links
+   - http://servforu.blogspot.in/2012/11/how-to-root-samsung-galaxy-ace.html
+   - [[https://mega.co.nz/#F!R8RQzbjT!UFTDdmDKHLAy-eYnQepT1A][jelly-blast-v3.0.3]]
+     
