@@ -1,0 +1,52 @@
+#+TITLE: Change default org-mode html tags.
+#+AUTHOR:    Sachin
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-02-26 Wed
+#+DESCRIPTION: How to change default org mode html tags
+#+KEYWORDS: org mode, org-appearance, Org Emphasis Alist
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+CATEGORY: blog
+#+TAGS: emacs, org-mode
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+This brief article came out as a result of a [[https://plus.google.com/110929313922902668537/posts/8FLNDvKc3sp][question]] posted by Icaro
+Perseo. He used org-mode for blogging using [[https://github.com/punchagan/org2blog][org2blog]], but was not
+satisfied with default html tags used by org-mode.
+
+#+HTML: <!--more-->
+
+He wanted to change the default emphasis on text when it is converted
+to html in org-mode. By default =/text/= becomes =<i>text</i>= and
+=*text*= converts to =<b>text</b>=, but willing to use =<em>= and
+=<strong>= instead of =<i>= and =<b>=.
+
+Well, everything can be customized from Emacs. Icaro's solution to the
+problem lies in the variable `org-emphasis-regexp-components`. To
+customize this group, type
+
+#+BEGIN_SRC emacs-lisp
+  M-x customize-group org-appearance
+#+END_SRC emacs-lisp
+
+and search for the variable `Org Emphasis Alist`
+
+     #+CAPTION:    Variable: Org Emphasis Alist
+     #+LABEL:      fig: Org Emphasis Alist
+     #+ATTR_LaTeX: width=3cm,angle=0
+     #+ATTR_HTML: height="245px", width="500px"
+
+     [[./change-org-html-tags/OrglEmphasisAlist.png]]
+
+Now change 'HTML start tag' and 'HTML end tag' for each list. In fact
+this very post was written in org-mode using org2blog. Don't believe ?
+check the html source [ *bold*, /italic/ ]
+
+
+

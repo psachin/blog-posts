@@ -1,9 +1,13 @@
+#+BLOG: nutannivate.wordpress.com
+#+POSTID: 6
 #+TITLE:     Upgrade Samsung GT-s5830i from 2.3 to 4.1(with JellyBlast ROM)
 #+AUTHOR:    =tas_devil=
 #+EMAIL:     iclcoolster@gmail.com
 #+DATE:      2014-02-11 Tue
 #+DESCRIPTION:
-#+KEYWORDS:
+#+TAGS: android
+#+KEYWORDS: samsung, gt-s5830i, jellyblast, cyanogenmod
+#+CATEGORY: blog
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
@@ -25,6 +29,8 @@
   need to buy licensed version of 'SoundAbout' to enable calling using
   headphones
 
+#+HTML: <!--more-->
+
 ** Before you proceed
 *** Make backup
 **** Sync
@@ -33,7 +39,7 @@
 
 ** Downloads[[https://drive.google.com/folderview?id=0BwmlxsGXffwTczZpejVhbkxwWUE&usp=sharing][(from Google Drive]])
    - ClockWorkRec5830i.zip
-   - jellyblastv3.0.3_ported_for_s5830i.zip
+   - jellyblastv3.0.3\_ported\_for\_s5830i.zip
    - update.zip
 
 ** Root
@@ -52,9 +58,9 @@
      
      #+CAPTION:    Select update.zip
      #+LABEL:      fig:update
-     #+ATTR_LaTeX: width=5cm,angle=0
+     #+ATTR_LaTeX: width=3cm,angle=0
 
-     [[./gt-s5830i-images/samsung-recovery.jpg]]
+     [[http://nutannivate.files.wordpress.com/2014/02/samsung-recovery.jpg]]
    
    - Select 
 
@@ -95,9 +101,9 @@
 
       #+CAPTION:    CWM backup
       #+LABEL:      fig:update
-      #+ATTR_LaTeX: width=7cm, height=10cm, angle=0
+      #+ATTR_LaTeX: width=4cm, height=6cm, angle=0
       
-      [[./gt-s5830i-images/cwm_backup.jpg]]
+      [[http://nutannivate.files.wordpress.com/2014/02/cwm_backup.jpg]]
 
 ** Install Android 4.1(JellyBlast ROM v3.0.3)
    
@@ -126,9 +132,9 @@
 
      #+CAPTION:    JellyBlast 3.0.3 install complete
      #+LABEL:      fig:update
-     #+ATTR_LaTeX: width=5cm,angle=0
+     #+ATTR_LaTeX: width=3cm,angle=0
      
-     [[./gt-s5830i-images/install-complete.jpg]]
+     [[http://nutannivate.files.wordpress.com/2014/02/install-complete.jpg]]
 
    - I recommend to backup your freshly installed ROM using *CWM*.
 
