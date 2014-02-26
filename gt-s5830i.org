@@ -33,7 +33,7 @@
 
 ** Downloads[[https://drive.google.com/folderview?id=0BwmlxsGXffwTczZpejVhbkxwWUE&usp=sharing][(from Google Drive]])
    - ClockWorkRec5830i.zip
-   - jellyblastv3.0.3\_ported\_for\_s5830i.zip
+   - jellyblastv3.0.3_ported_for_s5830i.zip
    - update.zip
 
 ** Root
@@ -75,6 +75,7 @@
        apps
 
 *** Using CWM(requires rooting)
+    - Samsung GT-s5830i has its own recovery using which CWM can be installed.
     - Select 
 
       #+BEGIN_SRC sh
@@ -98,7 +99,7 @@
       
       [[./gt-s5830i-images/cwm_backup.jpg]]
 
-** Install 4.1(JellyBlast v3.0.3)
+** Install Android 4.1(JellyBlast ROM v3.0.3)
    
    - I assume you have made a backup of your data and ROM and you are
      still inside CWM recovery menu.
@@ -134,7 +135,7 @@
 ** Bug fix
    - To fix the headset issue install 'SoundAbout' app from Google
      play store.
-   - *Do not* install external =gapps= over this ROM.
+   - *Do not* install external *gapps* on this ROM.
 
 
 ** links
