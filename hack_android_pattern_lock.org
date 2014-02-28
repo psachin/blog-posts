@@ -17,9 +17,23 @@ entries
 
 #+HTML: <!--more-->
 
-/Solution/:
+/Short method/:
 
-** Downloading and burning an image on SD-card
+** Remove =.key= files via =adb=
+   - Sometimes deleting =password.key= and =gesture.key= files alone
+     can help to unlock pattern lock. But this method require to have
+     'Debugging mode' enabled
+   - Attach the Android device to your system and make sure you have
+     'adb' install. =adb= comes bundled with Android SDK.
+   - Now open the terminal and type below commands:
+     #+BEGIN_SRC sh
+       adb shell rm -r /data/system/password.key
+       adb shell rm -r /data/system/gesture.key
+     #+END_SRC sh
+
+/Long method/:
+
+** Download and burn an image on SD-card
    + Buy one 8 GB SD-card and download GNU/Linux image for Aakash from
      [[http://www.it.iitb.ac.in/AakashApps/repo/GNU-Linux-on-Aakash/12.10-lxde-bootLogo-0secUboot-expeyes-scilab-on-cloud-sleep1.img.bz2][here]].
 
@@ -40,11 +54,11 @@ entries
    + Or you can use a simplified GUI [[https://github.com/androportal/ddMaker][ddMaker]] tool for burning an
      image.
 
-** Booting with GNU/Linux image
+** Boot with GNU/Linux image
    + Insert the SD-card in to the SD-card slot of the tablet and hold
      the /power/ button until you see Aakash's boot-splash screen.
      
-** Installing required dependencies
+** Install required dependencies
    + You need to edit the =settings.db= file. This is sqlite's
      database file. You may need to install =sqlite3= on the
      tablet(GNU/Linux side). You can install it using =apt-get=. On
@@ -55,7 +69,7 @@ entries
      give the password as =123=
 
 
-** Mounting the NAND partition
+** Mount the NAND partition
 
    + login as =root= 
      #+BEGIN_SRC bash
