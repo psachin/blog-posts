@@ -1,0 +1,113 @@
+#+BLOG: carlfg.wordpress.com
+#+POSTID: 92
+#+DATE: [2014-03-04 Tue 11:27]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: bash, shell
+#+DESCRIPTION: How to find bash function definition and location
+#+TITLE: Find Bash function location and definition
+#+AUTHOR:    Sachin
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-03-04 Tue
+#+KEYWORDS: function, definition, shell, export, declare, shopt, type, which
+#+LANGUAGE:  en
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+I have lot of custom Bash functions for every seldom or frequent
+task. I store these functions in =~/.bashrc= file but most likely I
+keep it in a separate Bash script and =source= this script from
+=~/.bashrc=. As these Bash scripts goes on increasing so does
+functions. Now if I want to locate these functions or I want to edit
+it?
+
+Unlike =which= command, which is used to find a program file location,
+we can't use it to find Bash function location. But there is a way we can
+read the function definition and also find its location
+
+#+HTML: <!--more-->
+
+** Read function definition
+   Both =type= and =declare= can be used to read function definition.
+   #+BEGIN_SRC sh
+     type -a <FUNCTION-NAME>
+   #+END_SRC sh
+
+   #+BEGIN_SRC sh
+     declare -f <FUNCTION-NAME>
+   #+END_SRC sh
+
+   For example, I have a function called =mcd= to create new directory
+   and =cd= in to it. The following command will print the function
+   definition
+   #+BEGIN_SRC language
+     type -a mcd
+   #+END_SRC language
+
+   Output:
+   #+BEGIN_SRC sh
+     mcd is a function
+     mcd ()
+     {
+         if [ "$#" -eq 1 ]; then
+             mkdir --parents "$1";
+             cd "$1";
+         else
+             echo "Usage: mcd <DIR_NAME>" > /dev/stderr;
+         fi
+     }
+   #+END_SRC sh
+
+   In the same way =declare= can be used.
+   
+** Find function location in a file
+   To find function location, turn on shell debugging using
+   #+BEGIN_SRC sh
+     shopt -s extdebug
+   #+END_SRC sh
+
+   and then
+   #+BEGIN_SRC sh
+     declare -F <FUNCTION-NAME>
+   #+END_SRC sh
+
+   for example, to find =mcd='s location
+   #+BEGIN_SRC sh
+     declare -F mcd
+   #+END_SRC sh
+
+   Output:
+   #+BEGIN_SRC sh
+     mcd 51 /home/sachin/.bashrc
+   #+END_SRC sh
+
+   *51* is the line number in file =~/.bashrc= where =mcd= is defined.
+
+   Finally turn off shell debugging.
+   #+BEGIN_SRC sh
+     shopt -s extdebug  
+   #+END_SRC sh
+
+
+** Custom function
+   Its better to write a custom function using above commands.
+   
+   #+BEGIN_SRC sh
+     function whichf () {
+         if [ ${1} ];
+         then
+             shopt -s extdebug
+             declare -F ${1}
+             shopt -u extdebug
+         else
+             echo "Error: Expected Function name as an argument!"
+         fi
+     }
+   #+END_SRC sh
+
+
