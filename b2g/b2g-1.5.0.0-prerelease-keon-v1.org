@@ -1,3 +1,5 @@
+#+BLOG: carlfg.wordpress.com
+#+POSTID: 106
 #+DATE: [2014-03-27 Tue 14:39]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
@@ -142,6 +144,6 @@ Geeksphone(Keon v1, model: =qcom=).
 
     - [[https://drive.google.com/uc?id=0B-PZvjWWRSpQcUF1dVJEc2s5V3M&export=download][image-1.5.0.0-prerelease-keon-v1-2014-03-27.zip]]
     - [[https://docs.google.com/file/d/0B-PZvjWWRSpQenNBX0dld0NIQ2c/][image-1.5.0.0-prerelease-keon-v1-2014-03-27.md5]]
-    - Flash script(for reference): [[https://github.com/psachin/bash_scripts/flash.sh][flash.sh]]
+    - Flash script(for reference): [[https://github.com/psachin/bash_scripts/blob/master/flash.sh][flash.sh]]
 
 /Note/: Some images are captured using Android SDK 'monitor' tool
