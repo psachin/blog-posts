@@ -1,13 +1,13 @@
-#+DATE: [2014-03-04 Tue 13:17]
+#+DATE: [2014-03-27 Tue 14:39]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: blogs
-#+TAGS: python, virtual environment
-#+DESCRIPTION: An easy way set virtual environment for python
-#+TITLE: Easy way to activate virtualenv
+#+TAGS: b2g
+#+DESCRIPTION: Install b2g 1.5.0.0-prerelease build
+#+TITLE: Boot2Gecko 1.5.0.0-prerelease build ready to download
 #+AUTHOR:    Sachin
 #+EMAIL:     iclcoolster@gmail.com
-#+DATE:      2014-03-04 Tue
-#+KEYWORDS: python, virtualenv, activate, deactivate
+#+DATE:      2014-03-27 Tue
+#+KEYWORDS: b2g, boot2gecko, geeksphone, keon, firefox OS, pre-release
 #+LANGUAGE:  en
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
@@ -17,7 +17,131 @@
 #+LINK_HOME: 
 #+XSLT:
 
+For impatient Geeksphone(Keon) users who want to try the latest
+version of *Boot2Gecko* (Firefox OS), I have compiled the build image.
+Please visit the 'Downloads' section.
 
+     #+CAPTION: Boot2Gecko 1.5.0.0-prerelease build
+     #+NAME: Boot2Gecko 1.5.0.0-prerelease build
+     #+ATTR_HTML: alt="Boot2Gecko 1.5.0.0-prerelease build"
+     #+ATTR_HTML: width="300" height="480" style="border:4px solid gray;"
+     #+ATTR_HTML: style="float:center;"
+
+     [[./images/gp-lockscreen.png]]
+
+Its a pre-release version, but works perfectly fine. It is tested on
+Geeksphone(Keon v1, model: =qcom=).
 
 #+HTML: <!--more-->
 
+*** Backup existing ROM
+
+   - Make sure you have more than 50% battery left
+   - Before you flash, make sure to backup an existing ROM
+   - Power off the phone
+   - Reboot the phone into recovery by pressing =Vol Up= and =Power= keys
+     simultaneously
+   - Goto to *backup and restore* option(Use =Vol UP/DOWN= key to
+     toggle, and =Home= soft key to select an option)
+
+    #+CAPTION: Firefox OS system recovery
+    #+ATTR_HTML: alt="Firefox OS system recovery"
+    #+ATTR_HTML: width="400" height="533" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+    
+    [[./images/gp-recovery-menu.jpg]]
+
+   - Now inside 'Backup and Restore' menu, select *backup*
+
+    #+CAPTION: Backup and Restore
+    #+ATTR_HTML: alt="Backup and Restore"
+    #+ATTR_HTML: width="400" height="533" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./images/gp-backup-restore-menu.jpg]]
+
+   - This will create a backup of an existing ROM in external
+     SD-card. You also have an option to backup inside internal
+     SD-card
+
+*** Install (Using GNU/Linux system)
+
+    - Download [[https://drive.google.com/uc?id=0B-PZvjWWRSpQcUF1dVJEc2s5V3M&export=download][zip]] and [[https://docs.google.com/file/d/0B-PZvjWWRSpQenNBX0dld0NIQ2c/][checksum]] files
+    - Verify the checksum using:
+
+      #+BEGIN_EXAMPLE
+       md5sum -c image-1.5.0.0-prerelease-keon-v1-2014-03-27.md5
+      #+END_EXAMPLE
+
+    #+CAPTION: MD5 check
+    #+ATTR_HTML: alt="MD5 check"
+    #+ATTR_HTML: width="717" height="60" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+    
+    [[./images/gp-md5check.png]]
+
+   
+
+    - Extract the zip file using:
+
+      #+BEGIN_EXAMPLE
+       unzip image-1.5.0.0-prerelease-keon-v1-2014-03-27.zip
+      #+END_EXAMPLE
+
+    - Visit the directory
+      =image-1.5.0.0-prerelease-keon-v1-2014-03-27= using:
+
+      #+BEGIN_EXAMPLE
+       cd image-1.5.0.0-prerelease-keon-v1-2014-03-27
+      #+END_EXAMPLE
+
+    - Plug the device using USB data cable
+    - Make sure that 'Remote debugging' is enabled from
+
+      *Settings > Device information > More information > Developer > Remote debugging*
+
+    - Flash the image using:
+
+      #+BEGIN_EXAMPLE
+       bash ./flash.sh
+      #+END_EXAMPLE
+
+    #+CAPTION: Flash image
+    #+ATTR_HTML: alt="Flash image"
+    #+ATTR_HTML: width="696" height="310" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./images/gp-flashimage.png]]
+
+*** Images
+
+    #+CAPTION: B2G Home screen 
+    #+ATTR_HTML: alt="B2G Home screen"
+    #+ATTR_HTML: width="400" height="533" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./images/gp-device-homescreen.jpg]]
+      
+      
+    #+CAPTION: B2G lock screen 
+    #+ATTR_HTML: alt="B2G Home screen"
+    #+ATTR_HTML: width="400" height="533" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./images/gp-device-lockscreen.jpg]]
+
+
+    #+CAPTION: B2G Device information
+    #+ATTR_HTML: alt="B2G Device information"
+    #+ATTR_HTML: width="300" height="480" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+
+    [[./images/gp-devinfo.png]]
+
+*** Downloads
+
+    - [[https://drive.google.com/uc?id=0B-PZvjWWRSpQcUF1dVJEc2s5V3M&export=download][image-1.5.0.0-prerelease-keon-v1-2014-03-27.zip]]
+    - [[https://docs.google.com/file/d/0B-PZvjWWRSpQenNBX0dld0NIQ2c/][image-1.5.0.0-prerelease-keon-v1-2014-03-27.md5]]
+    - Flash script(for reference): [[https://github.com/psachin/bash_scripts/flash.sh][flash.sh]]
+
+/Note/: Some images are captured using Android SDK 'monitor' tool
