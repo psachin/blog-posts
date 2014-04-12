@@ -107,7 +107,7 @@ post. After you enter the device shell using *adb* using
    
    Go ahead and change swappiness from 60 to 100.
    #+BEGIN_SRC sh
-     echo 100 /proc/sys/vm/swappiness
+     echo 100 > /proc/sys/vm/swappiness
    #+END_SRC sh
    
    and verify the value from the file =swappiness=.
