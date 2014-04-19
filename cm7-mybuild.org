@@ -1,0 +1,55 @@
+#+DATE: [2014-04-19 Sat 17:13]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: android, cyanogenmod
+#+DESCRIPTION: My own build of cm7
+#+TITLE: My own build of cyanogenmod 7 for ZTE Blade
+#+AUTHOR:    Sachin
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-04-19 Sat
+#+KEYWORDS: android, cyanogenmod, cm7, zte blade
+#+LANGUAGE:  en
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP: http://wiki.cyanogenmod.org/w/Build_for_blade
+#+LINK_HOME:  
+#+XSLT:
+
+Tough I use cm9 on ZTE Blade(Orange San Francisco), cm7 works best on
+ZTE Blade because of its low RAM(176MB in total). I compiled my own
+build rather than using someone else ROM. It works great and
+everything works !
+
+     #+CAPTION:    Lock Screen
+     #+LABEL:      fig: Lock Screen
+     #+ATTR_LaTeX: width=3cm,angle=0
+     #+ATTR_HTML: height="800px", width="480px"
+
+     [[./cm7-mybuild/zteBlade-lockscreen-cm7.png]]
+
+#+HTML: <!--more-->
+
+** Screen shots
+
+     #+CAPTION:    Home Screen
+     #+LABEL:      fig: Home Screen
+     #+ATTR_LaTeX: width=3cm,angle=0
+     #+ATTR_HTML: height="800px", width="480px"
+
+     [[./cm7-mybuild/zteBlade-homescreen-cm7.png]]
+
+     #+CAPTION:    About Phone
+     #+LABEL:      fig: About Phone
+     #+ATTR_LaTeX: width=3cm,angle=0
+     #+ATTR_HTML: height="800px", width="480px"
+
+     [[./cm7-mybuild/zteBlade-aboutPhone-cm7.png]]
+
+
+** Download
+
+   [[google.com][cm-7-20140417-UNOFFICIAL-blade.zip]]
+
+
