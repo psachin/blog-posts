@@ -1,0 +1,118 @@
+#+DATE: [2014-04-19 Sat 18:25]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: hardware, zte blade
+#+DESCRIPTION: ZTE Blade teardown
+#+TITLE: ZTE Blade teardown
+#+AUTHOR:    Sachin
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-04-19 Tue
+#+KEYWORDS: zte blade, idea blade, teardown
+#+LANGUAGE:  en
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+The last snaps of my ZTE Blade before it died :(. In an attempt to
+unlock RAM from 256MB to 512MB using method mentioned [[http://www.modaco.com/topic/339048-guide-flashing-firmware-to-bladelibra-via-windows/][here]].
+
+#+HTML: <!--more-->
+
+** Snaps
+
+   #+CAPTION: ZTE-td1: Motherboard when both outer covers are opened
+   #+ATTR_HTML: alt="ZTE-td1"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/1.jpg]]
+
+   #+CAPTION: ZTE-td2
+   #+ATTR_HTML: alt="ZTE-td2"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/2.jpg]]
+
+   #+CAPTION: ZTE-td3: Front touch screen
+   #+ATTR_HTML: alt="ZTE-td3"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/3.jpg]]
+
+   #+CAPTION: ZTE-td4
+   #+ATTR_HTML: alt="ZTE-td4"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/4.jpg]]
+
+   #+CAPTION: ZTE-td5: Back cover with speaker at the bottom
+   #+ATTR_HTML: alt="ZTE-td5"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/5.jpg]]
+
+   #+CAPTION: ZTE-td6: Front cover with IR module at top-left
+   #+ATTR_HTML: alt="ZTE-td6"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/6.jpg]]
+
+   #+CAPTION: ZTE-td7
+   #+ATTR_HTML: alt="ZTE-td7"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/7.jpg]]
+
+   #+CAPTION: ZTE-td8: Hard Buttons
+   #+ATTR_HTML: alt="ZTE-td8"
+   #+ATTR_HTML: width="300" height="400" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/8.jpg]]
+
+   #+CAPTION: ZTE-td9: Main board having Camera, vibrator, SD card, and SIM module
+   #+ATTR_HTML: alt="ZTE-td9"
+   #+ATTR_HTML: width="480" height="370" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/9.jpg]]
+
+   #+CAPTION: ZTE-td10
+   #+ATTR_HTML: alt="ZTE-td10"
+   #+ATTR_HTML: width="480" height="370" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/10.jpg]]
+
+   #+CAPTION: ZTE-td11: Booting
+   #+ATTR_HTML: alt="ZTE-td11"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/11.jpg]]
+
+   #+CAPTION: ZTE-td12: Android splash screen
+   #+ATTR_HTML: alt="ZTE-td12"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/12.jpg]]
+
+   #+CAPTION: ZTE-td13: IDEA logo
+   #+ATTR_HTML: alt="ZTE-td13"
+   #+ATTR_HTML: width="480" height="600" style="border:4px solid gray;"
+   #+ATTR_HTML: style="float:center;"
+     
+   [[./blade-teardown/13.jpg]]
+
+
