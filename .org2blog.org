@@ -1,66 +1,90 @@
 
 * Posts
-** [[file:/home/sachin/org/hack_android_pattern_lock.org][Hack android pattern lock]]
+** [[file:/home/sachin/github/blog-posts/cm7-mybuild.org][My own build of cyanogenmod 7 for ZTE Blade]]
    :PROPERTIES:
-   :POSTID:   2302
-   :POST_DATE: 20130619T04:52:00+0000
+   :POSTID:   142
+   :POST_DATE: 20140419T11:43:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/commandLineAndroid.org][Command-line Android]]
+** [[file:/home/sachin/github/blog-posts/b2g/b2g-1.5.0.0-prerelease-keon-v1.org][Boot2Gecko 1.5.0.0-prerelease build ready to download]]
    :PROPERTIES:
-   :POSTID:   2204
-   :POST_DATE: 20130223T19:54:00+0000
+   :POSTID:   106
+   :POST_DATE: 20140327T09:09:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/insertTimeInEmacs.org][Insert time-stamp from GNU/Emacs]]
+** [[file:/home/sachin/github/blog-posts/upgrade-aakash-firmware.org][Upgrade Aakash tablet from ICS to Jelly Bean]]
    :PROPERTIES:
-   :POSTID:   2176
-   :POST_DATE: 20130223T18:37:00+0000
+   :POSTID:   211
+   :POST_DATE: 20140307T07:42:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/pdftk.org][using pdftk]]
+** [[file:/home/sachin/github/blog-posts/custom-ROM-A45.org][Flash Xtream mod-2 on Micromax A45(Superfone Punk)]]
+   :PROPERTIES:
+   :POSTID:   43
+   :POST_DATE: 20140304T12:50:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/set_virtualenvironment.org][Easy way to activate virtualenv]]
+   :PROPERTIES:
+   :POSTID:   96
+   :POST_DATE: 20140304T07:47:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/bash_function_definition.org][Find Bash function location and definition]]
+   :PROPERTIES:
+   :POSTID:   92
+   :POST_DATE: 20140304T05:57:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/change-org-html-tags.org][Change default org-mode html tags.]]
+   :PROPERTIES:
+   :POSTID:   76
+   :POST_DATE: 20140225T18:30:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/gt-s5830i.org][Upgrade Samsung GT-s5830i from 2.3 to 4.1(with JellyBlast ROM)]]
+   :PROPERTIES:
+   :POSTID:   6
+   :POST_DATE: 20140210T18:30:00+0000
+   :Published: No
+   :END:
+** [[file:/home/sachin/github/blog-posts/insert_shebang_for_emacs.org][Insert shebang extension for Emacs]]
+   :PROPERTIES:
+   :POSTID:   30
+   :POST_DATE: 20131021T07:08:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/first_hand_to_clojure.org][First hand to Clojure]]
+   :PROPERTIES:
+   :POSTID:   12
+   :POST_DATE: 20131018T14:50:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/zte-swap-without-swapper2.org][Add swap on ZTE Blade without swapper2]]
+   :PROPERTIES:
+   :POSTID:   2377
+   :POST_DATE: 20131001T07:17:00+0000
+   :Published: Yes
+   :END:
+** [[file:/home/sachin/github/blog-posts/pdftk.org][using pdftk]]
    :PROPERTIES:
    :POSTID:   1996
    :POST_DATE: 20120826T12:45:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/chroot.org][Working with chroot environment]]
-   :PROPERTIES:
-   :POSTID:   1990
-   :POST_DATE: 20130225T06:29:00+0000
-   :Published: Yes
-   :END:
-** [[file:/home/sachin/org/whatis/whatIsEmacs.org][what is Emacs?]]
-   :PROPERTIES:
-   :POSTID:   1983
-   :POST_DATE: 20120825T03:13:00+0000
-   :Published: Yes
-   :END:
-** [[file:/home/sachin/org/whatis/whatIsGit.org][what is Git?]]
-   :PROPERTIES:
-   :POSTID:   1972
-   :POST_DATE: 20120824T12:35:00+0000
-   :Published: Yes
-   :END:
-** [[file:/home/sachin/org/rsync_port.org][How to specify remote port in rsync]]
+** [[file:/home/sachin/github/blog-posts/rsync_port.org][How to specify remote port in rsync]]
    :PROPERTIES:
    :POSTID:   1964
    :POST_DATE: 20120823T06:44:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/enable_kvm_intel.org][Enable Kernel virtualization on Intel/AMD arch]]
-   :PROPERTIES:
-   :POSTID:   1960
-   :POST_DATE: 20120823T06:21:00+0000
-   :Published: Yes
-   :END:
-** [[file:/home/sachin/org/sshIntoQemu.org][Creating a qemu system image and working with it using ssh login]]
+** [[file:/home/sachin/github/blog-posts/sshIntoQemu.org][Creating a qemu system image and working with it using ssh login]]
    :PROPERTIES:
    :POSTID:   1950
    :POST_DATE: 20120823T02:19:00+0000
    :Published: Yes
    :END:
-** [[file:/home/sachin/org/renaming master branch in git.org][renaming master branch in git]]
+** [[file:/home/sachin/github/blog-posts/renaming master branch in git.org][renaming master branch in git]]
    :PROPERTIES:
    :POSTID:   1886
    :POST_DATE: 20120808T05:59:00+0000
@@ -78,4 +102,3 @@
    :POST_DATE: 20130920T06:35:00+0000
    :Published: Yes
    :END:
-   
