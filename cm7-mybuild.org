@@ -19,7 +19,7 @@
 
 Tough I use cm9 on ZTE Blade(Orange San Francisco), cm7 works best on
 ZTE Blade because of its low RAM(176MB in total). I compiled my own
-build rather than using someone else ROM. It works great and
+build rather than using someone else ROM. It looks great and
 everything works !
 
      #+CAPTION:    Lock Screen
@@ -50,6 +50,6 @@ everything works !
 
 ** Download
 
-   [[google.com][cm-7-20140417-UNOFFICIAL-blade.zip]]
+   [[https://drive.google.com/folderview?id=0B-PZvjWWRSpQd3dwTUZVNVM4SVE&usp=sharing][cm-7-20140417-UNOFFICIAL-blade.zip]]
 
 
