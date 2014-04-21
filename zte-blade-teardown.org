@@ -17,8 +17,9 @@
 #+LINK_HOME: 
 #+XSLT:
 
-The last snaps of my ZTE Blade before it died :(. In an attempt to
-unlock RAM from 256MB to 512MB using method mentioned [[http://www.modaco.com/topic/339048-guide-flashing-firmware-to-bladelibra-via-windows/][here]].
+In an attempt to unlock RAM from 256MB to 512MB I bricked my ZTE
+Blade. These are the final snaps before it died. [[Http://www.modaco.com/topic/339048-guide-flashing-firmware-to-bladelibra-via-windows/][Here]] is the method I
+followed.
 
 #+HTML: <!--more-->
 
@@ -116,3 +117,7 @@ unlock RAM from 256MB to 512MB using method mentioned [[http://www.modaco.com/to
    [[./blade-teardown/13.jpg]]
 
 
+Fortunately, I got another Blade with broken touch screen. I managed
+to replace the board[fig ZTE-td9]. It was an amazing experience and I
+got all the hardware working :). Out of excitement, I bricked the new
+hardware too :P but this time it was successfully [[http://www.modaco.com/topic/343587-guide-de-bricking-a-zte-blade/][de-bricked{method-5}]]
