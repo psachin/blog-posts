@@ -17,6 +17,9 @@
 #+LINK_HOME: 
 #+XSLT:
 
+
+
+
 I like to have a separate [[http://www.virtualenv.org/en/latest/][virtualenvs]] for each python project. This
 end up having virtualenvs for each project that often find difficult
 to switch. All my virtual environments resides in =~/virtualenvs=
@@ -25,9 +28,19 @@ is a tedious job. Luckily I have Bash function which I found very
 handy. It lists all available virtual environments and can switch the
 environment as needed.
 
+/Update/: Sun May  4 09:43:34 IST 2014
+I have updated the script so that tab-completion works. Please
+download the updated version from download section
+
+Usage: 
+
+setv [TAB] [TAB]
+
+will display all virtual environment names.
+
 #+HTML: <!--more-->
 
-Bash script:
+Bash script(Old version, see /Downlaod/ section for latest version):
 #+BEGIN_SRC sh
 #!/usr/bin/env bash
 # Set virtual environment
@@ -97,6 +110,12 @@ The usage is also mentioned as comments within a file.
    - To list available virtual environments
      #+BEGIN_SRC sh
        setv -l
+     #+END_SRC sh
+
+     or
+
+     #+BEGIN_SRC sh
+       setv [TAB] [TAB]
      #+END_SRC sh
 
    - To switch environment
