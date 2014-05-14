@@ -179,5 +179,11 @@ Let us consider following header lines as an example
     #+ATTR_HTML: style="float:center;"
     [[./regex-in-emacs/re-8.png]]
 
+    #+CAPTION: Regex in animated form
+    #+ATTR_HTML: alt="re-animated"
+    #+ATTR_HTML: width="756" height="496" style="border:4px solid gray;"
+    #+ATTR_HTML: style="float:center;"
+    [[./regex-in-emacs/re.gif]]
+
     This ends introduction to Emacs's =re-builder=, for more info
     please visit [[http://ergoemacs.org/emacs/emacs_regex.html][Xah Lee's]] page on regex.
