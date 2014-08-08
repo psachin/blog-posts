@@ -1,0 +1,53 @@
+#+DATE: [2014-08-08 Fri 17:29]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: blogs
+#+TAGS: Emacs, org
+#+DESCRIPTION: Using re-builder in Emacs
+#+TITLE: Convert org file to odt with Emacs
+#+AUTHOR:    Sachin
+#+EMAIL:     iclcoolster@gmail.com
+#+DATE:      2014-08-08 Fri
+#+KEYWORDS: emacs, org, odt, Libre office
+#+LANGUAGE:  en
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+XSLT:
+
+Just as we can convert =.org= file to =.pdf= in Emacs, we can also
+convert =.org= files to =.odt= format(Libre Office)
+
+#+CAPTION: org to odt
+#+ATTR_HTML: alt="org2odt"
+#+ATTR_HTML: width="700" height="420" style="border:4px solid gray;"
+#+ATTR_HTML: style="float:center;"
+[[./org2odt/org2odt.png]]
+
+
+#+HTML: <!--more-->
+
+
+Open up your Emacs config file and paste below code
+
+#+BEGIN_SRC emacs-lisp
+  (if (file-exists-p "/usr/bin/soffice")
+    (setq org-export-odt-convert-processes
+        "/usr/bin/soffice --headless --convert-to %f%x --outdir %d %i"
+        org-export-odt-preferred-output-format "odt"
+        org-export-odt-convert-process "/usr/bin/soffice")
+  (message "SOFFICE path not found"))
+#+END_SRC emacs-lisp
+
+Now open any org file and type
+#+BEGIN_SRC emacs-lisp
+  M-x org-export-as-odt
+#+END_SRC emacs-lisp
+
+This should convert an org file to odt.
+
+Above code can also be downloaded from [[http://sachin.pythonanywhere.com/emacshaqiba/code/29/][haqiba.org]] directly as emacs
+config file.
+
