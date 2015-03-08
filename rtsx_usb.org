@@ -1,0 +1,87 @@
+* Realtek 5129 USB Card Reader Controller
+
+The post describes how to enable Realtek RTS5129 Card Reader
+controller in Linux kernel.
+
+Strangle I never came across this problem of SD-card not been
+supported on Linux. At the beginning I thought it may be a hardware
+problem but hey I just bought a new Laptop!. I needed to burn an image
+on the SD-card as soon as I inserted a SD card adapter, the OS was not
+able to detect it. I went ahead and checked =dmesg= log but no luck.
+OK! that's fine, I checked =lspci= output but still not trace of Card
+Reader Controller. May be the controller is not attached to PCI bus. I
+fired =lsusb= and voila! I got an entry. The output had a reference of
+Card Reader Controller.
+
+#+BEGIN_SRC sh
+  Bus 003 Device 003: ID 0bda:5728 Realtek Semiconductor Corp.
+  Bus 004 Device 002: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+  Bus 005 Device 007: ID 0cf3:3004 Atheros Communications, Inc.
+  Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+  Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  Bus 004 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  Bus 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+  Bus 006 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+#+END_SRC
+
+This proved that the Card Reader Controller was attached to USB bus
+and Linux kernel(My kernel was 3.16.1) had support for it but may be
+few user-space modules are missing. So I downloaded the source code
+for the latest kernel(Version 3.19.0) and searched for the string
+'RTS' in Linux kernel configuration.
+
+#+CAPTION: Search result of 'RTS'
+#+Name: Linux kernel 3.19.0. Result of 'RTS'
+
+[[./rtsx_usb/search_results_of_rts.png]]
+
+I ignored MFD_RTSX_PCI and enabled MFD_RTSX_USB from Device Drivers ->
+Multifunctional device drivers -> Realtek USB Card Reader as module.
+
+#+CAPTION: Enable MFD_RTSX_USB
+#+Name: Enable MFD_RTSX_USB
+
+[[./rtsx_usb/realtek_usb_card_reader.png]]
+
+I recompiled the kernel and inserted SD-card. Nothing showed up in
+=dmesg= log. I loaded the module manually using the command
+
+#+BEGIN_SRC sh
+  modprobe rtsx_usb
+#+END_SRC
+
+But still the SD-card was not detected. Something was still missing. I
+went ahead and searched the Linux kernel config for
+'MMC'(MultiMediaCard) and two familiar modules showed up.
+
+#+CAPTION: Search result of 'MMC'
+#+Name: Linux kernel 3.19.0. Result of 'MMC'
+
+[[./rtsx_usb/search_results_of_mmc.png]]
+
+Again I safely ignored MMC_REALTEK_USB and enabled MMC_REALTEK_USB
+from Device Drivers -> MMC/SD/SDIO card support -> Realtek USB SD/MMC
+Card interface Driver as module.
+
+#+CAPTION: Enable MMC_REALTEK_USB
+#+Name: Enable MMC_REALTEK_USB
+
+[[./rtsx_usb/realtek_usb_sd-mmc_card_interface_driver.png]]
+
+I compiled the kernel again and inserted the SD-card. This time the
+SD-card got successfully detected.
+
+Support for Realtek USB card reader is [[https://github.com/torvalds/linux/commit/730876be256603b4ee7225a125467d97a7ce9060][patched]] into the Linux kernel
+3.15 since Mar 19, 2014.
+
+PS: The module =rtsx_usb= should load automatically. If the module is
+not able to load, create a file rtsx_usb.conf in the path
+/etc/modules-load.d with following content.
+
+#+BEGIN_SRC sh
+  # Load rtsx_usb.ko on boot This module is used to mount sdccard(mmc)
+  # for Realtek RTS5129 Card Reader Controller. You need to enable
+  # CONFIG_MDF_RTSX_USB and MMC_REALTEK_USB in kernel.
+  rtsx_usb
+#+END_SRC
