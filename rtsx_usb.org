@@ -3,7 +3,7 @@
 The post describes how to enable Realtek RTS5129 Card Reader
 controller in Linux kernel.
 
-Strangle I never came across this problem of SD-card not been
+Strangely I never came across this problem of SD-card not been
 supported on Linux. At the beginning I thought it may be a hardware
 problem but hey I just bought a new Laptop!. I needed to burn an image
 on the SD-card as soon as I inserted a SD card adapter, the OS was not
