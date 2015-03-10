@@ -60,7 +60,7 @@ went ahead and searched the Linux kernel config for
 
 [[./rtsx_usb/search_results_of_mmc.png]]
 
-Again I safely ignored MMC_REALTEK_USB and enabled MMC_REALTEK_USB
+Again I safely ignored MMC_REALTEK_PCI and enabled MMC_REALTEK_USB
 from Device Drivers -> MMC/SD/SDIO card support -> Realtek USB SD/MMC
 Card interface Driver as module.
 
