@@ -4,39 +4,30 @@
 #+CATEGORY: blogs
 #+TAGS: linux, git, github, git branch -M
 #+DESCRIPTION: procedure to safely rename git's master branch to some other name
-#+TITLE: renaming master branch in git
+#+TITLE: Rename master branch in git
 
+There may be situation where one has to rename master branch to
+something else. Consider the situation where I have =master= branch as
+default branch. I have two more branches, =ics= and =froyo= apart from
+master, but I want to rename my =master= branch to =ics=.
 
-I have =master= branch as default branch in [[https://github.com][github]] repository. I need
-two more branches called, =ics= and =froyo=, and I want to rename my
-=master= branch to =ics=.
-
-*** *first create two new branches*
-
-#+NAME: create branch 
-#+BEGIN_SRC bash
-git branch froyo 
-git branch ics 
-#+END_SRC 
-
-*** *now rename the =master= branch to =ics=*
+*** *Rename the =master= branch to =ics=*
 
 #+BEGIN_SRC bash
-git branch -M -a master froyo
+git branch -M -a master ics
 #+END_SRC
 
-*-M* will rename the branch even if the new branch name already
-  exists.
+*-M* will rename the branch even if the new branch name already exists.
 
-*** *also I want to remove =master= branch from remote.*
+*** *also remove =master= branch from remote.*
 
 #+BEGIN_SRC bash
 git push origin :master
-#+END_SRC 
+#+END_SRC
 
-Now if I want to set the default branch as =ics= on github, then
-login to [[https://github.com][github]]. Visit the repository, go to the =Admin= tab. In the
-=Settings= column, Change the =Default= branch from =master= to =ics=.
+To set the default branch as =ics= on github, visit the 'repository'
+section and go to the =Admin= tab. In =Settings= change the =Default=
+branch from =master= to =ics=.
 
 *** *Tips*
     1. *to clone specific branch from git repository*
@@ -45,7 +36,7 @@ login to [[https://github.com][github]]. Visit the repository, go to the =Admin=
        #+END_SRC
 
        for example,
-       
+
        #+BEGIN_SRC bash
        git clone -b my-branch git@github.com:androportal/installer.git
        #+END_SRC
@@ -54,25 +45,23 @@ login to [[https://github.com][github]]. Visit the repository, go to the =Admin=
        #+BEGIN_SRC bash
        git co BRANCH_NAME FILE
        #+END_SRC
-    
+
        for example,
        #+BEGIN_SRC bash
        git co froyo html2sphinx.sh
        #+END_SRC
-      
-    3. *to checkout particular branch from remotes*
-       #+BEGIN_SRC bash 
+
+    3. *checkout particular branch from remotes*
+       #+BEGIN_SRC bash
        git co -b BRANCH remotes/origin/BRANCH
        #+END_SRC
 
        for example,
-       #+BEGIN_SRC bash 
+       #+BEGIN_SRC bash
        git co -b froyo remotes/origin/froyo
        #+END_SRC
 
-    4. *to remove files from git which are already deleted from system*
-       #+BEGIN_SRC bash 
+    4. *remove files from git which are already deleted from system*
+       #+BEGIN_SRC bash
        for file in $(git ls-files --deleted); do git rm $file; done
        #+END_SRC
-
-    
