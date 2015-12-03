@@ -8,59 +8,74 @@
 
 ** merging
    suppose I have some pdf pages like
-   
-   #+BEGIN_SRC bash
-   front.pdf, toc.pdf, auth_colo.pdf, part1.pdf, chap01.pdf,
-   chap02.pdf, part2.pdf, chap03.pdf, chap04.pdf, chap05.pdf,
-   part3.pdf, app_A.pdf, app_B.pdf, and, index.pdf
+
+   #+BEGIN_SRC sh
+     front.pdf, toc.pdf, auth_colo.pdf, part1.pdf, chap01.pdf,
+     chap02.pdf, part2.pdf, chap03.pdf, chap04.pdf, chap05.pdf,
+     part3.pdf, app_A.pdf, app_B.pdf, and, index.pdf
    #+END_SRC
 
    #+HTML: <!--more-->
-   I want to merge all the pdf's into a single book, then my command
+   If I want to merge all the pdf's into a single book(file), my command
    will be
-   #+BEGIN_SRC bash
-   pdftk front.pdf toc.pdf auth_colo.pdf part1.pdf chap01.pdf ... index.pdf cat output my_full_book.pdf
+   #+BEGIN_SRC sh
+     pdftk front.pdf toc.pdf auth_colo.pdf part1.pdf chap01.pdf ... index.pdf cat output my_full_book.pdf
    #+END_SRC
 
    this will create a pdf file in the same order in which I have
    specified. /*.pdf/ may also work if I don't care about page
    ordering. Remember that =my_full_book.pdf= is my output file name
    and =cat output= are output flags.
-   
+
 ** removing a page
    suppose I want to remove 'pages 3' then my command will be
 
-   #+BEGIN_SRC bash
-   pdftk my_full_book.pdf cat 1-2 4-end output full_book_with_page2-removed.pdf
+   #+BEGIN_SRC sh
+     pdftk my_full_book.pdf cat 1-2 4-end output full_book_with_page2-removed.pdf
    #+END_SRC
-   in the above example, I have skipped page number which I want to
+   in the above example, I skipped page number(s) which I want to
    remove, page =3= in this case. The above command means, I want
    pages to be included from 1 to 2, I don't want page number 3, so
    *skip it*, then start from page 4 till the *end*.
-   
+
    the syntax goes like this
-   
-   #+BEGIN_SRC bash
-   pdftk PDF_FILE cat FROM-TO FROM-end output NEW_PDF_FILE_NAME
+
+   #+BEGIN_SRC sh
+     pdftk PDF_FILE cat FROM-TO FROM-end output NEW_PDF_FILE_NAME
    #+END_SRC
 
 ** rotating pages
    If I want to rotate the first page at 90 degrees right, then
 
-   #+BEGIN_SRC bash
-   pdftk my_full_book.pdf cat 1R 2-end output page1_turned_right.pdf
+   #+BEGIN_SRC sh
+     pdftk my_full_book.pdf cat 1R 2-end output page1_turned_right.pdf
    #+END_SRC
 
    in the same way if I want to rotate all odd pages from range 1 to
    25 to 180 degrees, then
 
-   #+BEGIN_SRC bash
-   pdftk my_full_book.pdf cat 1-25oddD 26-end output odd_pages_book.pdf
+   #+BEGIN_SRC sh
+     pdftk my_full_book.pdf cat 1-25oddD 26-end output odd_pages_book.pdf
    #+END_SRC
+
+** Extract specific page(s)
+   #+BEGIN_SRC sh
+     pdftk lkn.pdf cat 4 5 output page4and5.pdf
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+     pdftk lkn.pdf cat 9 output page9.pdf
+   #+END_SRC
+
+   Split pages as individual file
+   #+BEGIN_SRC sh
+     pdftk page4and5.pdf burst
+   #+END_SRC
+
+   Output file will be pg_0001.pdf, pg_0002.pdf
 
 ** Reference
    For more info on =pdftk=, visit its manual pages by typing
-   #+BEGIN_SRC bash
-   man pdftk
+   #+BEGIN_SRC sh
+     man pdftk
    #+END_SRC
-   
