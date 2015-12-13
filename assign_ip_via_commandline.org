@@ -1,0 +1,54 @@
+#+TITLE: Assign IP address via command-line
+#+DATE: <2012-03-24>
+#+AUTHOR: Sachin
+#+EMAIL: iclcoolster@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 24.4.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+Sometimes, assigning IP address using command line is much more easier
+than using Network manager applet, this post covers examples with
+syntax
+
+Note: You must be =root= or =sudo= to run following commands
+
+** Assign IP address
+   Syntax
+   #+BEGIN_SRC sh nil
+     ifconfig <INTERFACE> <IP-ADDRESS> netmask <NETMASK>
+   #+END_SRC
+
+   Example
+   #+BEGIN_SRC sh nil
+     ifconfig eth0 192.168.1.11 netmask 255.255.255.0
+   #+END_SRC
+
+** Add gateway/route
+   Syntax
+   #+BEGIN_SRC sh nil
+     route add default gw <GATEWAY-IP> <INTERFACE>
+   #+END_SRC
+
+   Example
+   #+BEGIN_SRC sh nil
+     route add default gw 192.168.1.1 eth0
+   #+END_SRC
+
+** Set DNS address
+   Optionally DNS can be entered in the file =/etc/resolv.conf= in
+   following format
+
+   #+BEGIN_SRC text -n
+     # /etc/resolv.conf
+     nameserver 8.8.8.8
+     nameserver 8.8.4.4
+   #+END_SRC
+
+All the about changes will be temporary(unless you reboot the system)
