@@ -1,4 +1,8 @@
-* all my posts written in org-mode
+* All my posts written in org-mode
+
+
+## This repo is not maintained anymore. Please visit https://gitlab.com/psachin/psachin.gitlab.io or https://psachin.gitlab.io
+
 
 
   
